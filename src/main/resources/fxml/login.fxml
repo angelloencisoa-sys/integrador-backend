@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="pe.edu.utp.Grupo06.view.LoginViewController"
+      alignment="CENTER" spacing="20" style="-fx-background-color: #f1f5f9;" prefWidth="480" prefHeight="560">
+
+    <padding>
+        <Insets top="40" right="40" bottom="40" left="40"/>
+    </padding>
+
+    <!-- Tarjeta de Login (Card Box) -->
+    <VBox spacing="18" styleClass="card-box" alignment="CENTER" maxWidth="400">
+        
+        <VBox alignment="CENTER" spacing="5">
+            <Label text="SGCIVORP" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #0284c7;"/>
+            <Label text="Control de Inventario &amp; Ventas" styleClass="sub-title"/>
+        </VBox>
+
+        <Separator prefWidth="300"/>
+
+        <!-- Mensaje de Error / Alerta -->
+        <Label fx:id="lblError" text="" visible="false" managed="false"
+               style="-fx-background-color: #fee2e2; -fx-text-fill: #b91c1c; -fx-padding: 8px 12px; -fx-background-radius: 6px; -fx-font-size: 12px;"
+               maxWidth="Infinity" wrapText="true"/>
+
+        <!-- Formulario -->
+        <VBox spacing="12" alignment="CENTER_LEFT" maxWidth="Infinity">
+            
+            <VBox spacing="4">
+                <Label text="Nombre de Usuario" style="-fx-font-weight: bold; -fx-text-fill: #334155; -fx-font-size: 12px;"/>
+                <TextField fx:id="txtUsername" promptText="Ej: admin1 o cajero1" prefHeight="38"
+                           style="-fx-background-radius: 6px; -fx-border-color: #cbd5e1; -fx-border-radius: 6px;"/>
+            </VBox>
+
+            <VBox spacing="4">
+                <Label text="Contraseña" style="-fx-font-weight: bold; -fx-text-fill: #334155; -fx-font-size: 12px;"/>
+                <PasswordField fx:id="txtPassword" promptText="••••••••" prefHeight="38"
+                               style="-fx-background-radius: 6px; -fx-border-color: #cbd5e1; -fx-border-radius: 6px;"/>
+            </VBox>
+
+        </VBox>
+
+        <!-- Botón de Ingreso -->
+        <Button fx:id="btnLogin" text="Iniciar Sesión" onAction="#handleLogin" prefHeight="42" maxWidth="Infinity"
+                styleClass="btn, btn-primary" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-background-radius: 6px; -fx-cursor: hand;"/>
+
+        <ProgressIndicator fx:id="progressIndicator" visible="false" managed="false" prefWidth="30" prefHeight="30"/>
+
+    </VBox>
+
+    <Label text="Bodega SGCIVORP • UTP 2026" style="-fx-font-size: 11px; -fx-text-fill: #94a3b8;"/>
+
+</VBox>

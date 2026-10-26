@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="pe.edu.utp.Grupo06.view.MainLayoutController"
+            prefWidth="1180" prefHeight="720">
+
+    <!-- Barra Lateral Izquierda (Sidebar con estilo Dark Moderno) -->
+    <left>
+        <VBox spacing="10" styleClass="sidebar" prefWidth="240" alignment="TOP_CENTER">
+            
+            <padding>
+                <Insets top="20" right="15" bottom="20" left="15"/>
+            </padding>
+
+            <!-- Logo / Título del Sistema -->
+            <VBox alignment="CENTER_LEFT" spacing="2" style="-fx-padding: 0 0 15 10;">
+                <Label text="SGCIVORP" styleClass="sidebar-title"/>
+                <Label text="Bodega &amp; Inventario" style="-fx-text-fill: #38bdf8; -fx-font-size: 11px;"/>
+            </VBox>
+
+            <Separator style="-fx-opacity: 0.2;"/>
+
+            <!-- Menú de Navegación -->
+            <VBox spacing="6" alignment="TOP_CENTER" maxWidth="Infinity">
+                
+                <Button fx:id="btnPos" text="🛒 Punto de Venta" onAction="#mostrarPos"
+                        maxWidth="Infinity" styleClass="sidebar-btn-active"/>
+
+                <Button fx:id="btnPedidos" text="📦 Pedidos web" onAction="#mostrarPedidos" maxWidth="Infinity" styleClass="sidebar-btn"/>
+
+                <Button fx:id="btnProductos" text="📦 Inventario &amp; Productos" onAction="#mostrarProductos"
+                        maxWidth="Infinity" styleClass="sidebar-btn"/>
+
+                <Button fx:id="btnAlertas" text="🔍 Alertas de Reposición" onAction="#mostrarAlertas"
+                        maxWidth="Infinity" styleClass="sidebar-btn"/>
+
+                <Button fx:id="btnCompras" text="🚚 Compras a Proveedores" onAction="#mostrarCompras"
+                        maxWidth="Infinity" styleClass="sidebar-btn"/>
+
+                <Button fx:id="btnReportes" text="📊 Reportes &amp; Métricas" onAction="#mostrarReportes"
+                        maxWidth="Infinity" styleClass="sidebar-btn"/>
+
+                <Button fx:id="btnAdmin" text="🎫️ Administración" onAction="#mostrarAdmin"
+                        maxWidth="Infinity" styleClass="sidebar-btn"/>
+
+            </VBox>
+
+            <!-- Espaciador -->
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <Separator style="-fx-opacity: 0.2;"/>
+
+            <!-- Información del Usuario en Sesión y Botón de Salir -->
+            <VBox spacing="8" style="-fx-padding: 10 5 0 5;">
+                <VBox spacing="2">
+                    <Label fx:id="lblUsuarioNombre" text="Usuario" style="-fx-text-fill: #ffffff; -fx-font-weight: bold; -fx-font-size: 13px;"/>
+                    <Label fx:id="lblUsuarioRol" text="Rol" style="-fx-text-fill: #94a3b8; -fx-font-size: 11px;"/>
+                </VBox>
+                
+                <Button text="👤  Mi Perfil" onAction="#handleAbrirPerfil" maxWidth="Infinity"
+                        style="-fx-background-color: #1e293b; -fx-text-fill: #38bdf8; -fx-font-weight: bold; -fx-font-size: 12px; -fx-cursor: hand; -fx-background-radius: 6px; -fx-padding: 7 10;"/>
+
+                <Button text="🚪  Cerrar Sesión" onAction="#handleCerrarSesion" maxWidth="Infinity"
+                        styleClass="btn, btn-danger" style="-fx-font-size: 12px; -fx-cursor: hand; -fx-background-radius: 6px;"/>
+            </VBox>
+
+        </VBox>
+    </left>
+
+    <!-- Contenido Central Dinámico -->
+    <center>
+        <StackPane fx:id="contentArea" style="-fx-background-color: #f8f9fa;">
+            <padding>
+                <Insets top="20" right="25" bottom="20" left="25"/>
+            </padding>
+        </StackPane>
+    </center>
+
+</BorderPane>

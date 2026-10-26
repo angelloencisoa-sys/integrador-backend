@@ -1,0 +1,5 @@
+# Copiar como conexion-db.properties. Spring Boot lo lee al iniciar desde esta carpeta.
+# No usar comillas. En valores .properties, escribir \\ para representar una barra invertida.
+DB_URL=jdbc:postgresql://127.0.0.1:5432/sgcivorp_local
+DB_USERNAME=postgres
+DB_PASSWORD=

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="pe.edu.utp.Grupo06.view.AdminPanelViewController"
+      spacing="16" alignment="TOP_LEFT" maxWidth="Infinity" maxHeight="Infinity">
+
+    <!-- Encabezado del Panel de Administración -->
+    <HBox alignment="CENTER_LEFT" spacing="15">
+        <VBox spacing="2">
+            <Label text="Panel de Administración del Sistema" styleClass="main-title"/>
+            <Label text="Gestión de usuarios, empleados, categorías de productos y empresas proveedoras" styleClass="sub-title"/>
+        </VBox>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="🔄 Refrescar Datos" onAction="#handleRefrescarTodo" styleClass="btn, btn-default" style="-fx-cursor: hand;"/>
+    </HBox>
+
+    <!-- Contenedor de Pestañas Maestras -->
+    <TabPane VBox.vgrow="ALWAYS" tabClosingPolicy="UNAVAILABLE">
+
+        <!-- PESTAÑA 1: GESTIÓN DE USUARIOS / EMPLEADOS -->
+        <Tab text="👤 Usuarios &amp; Cajeros">
+            <VBox spacing="14" style="-fx-padding: 15 0 0 0;">
+                <!-- Barra de Búsqueda y Acciones Rápidas -->
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <TextField fx:id="txtBuscarUsuario" promptText="🔍 Buscar por nombre, usuario o email..."
+                               prefWidth="320" style="-fx-background-radius: 6px;"/>
+                    <Label fx:id="lblTotalUsuarios" text="Total: 0 usuarios"
+                           style="-fx-text-fill: #64748b; -fx-font-weight: bold; -fx-font-size: 13px;"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button text="➕ Nuevo Usuario / Cajero" onAction="#handleNuevoUsuario"
+                            styleClass="btn, btn-primary" style="-fx-font-weight: bold; -fx-cursor: hand;"/>
+                </HBox>
+
+                <TableView fx:id="tblUsuarios" VBox.vgrow="ALWAYS" styleClass="table-view">
+                    <columns>
+                        <TableColumn fx:id="colUsuId" text="ID" prefWidth="50"/>
+                        <TableColumn fx:id="colUsuNombre" text="Nombre Completo" prefWidth="190"/>
+                        <TableColumn fx:id="colUsuUsername" text="Usuario" prefWidth="110"/>
+                        <TableColumn fx:id="colUsuEmail" text="Email" prefWidth="170"/>
+                        <TableColumn fx:id="colUsuTelefono" text="Teléfono" prefWidth="100"/>
+                        <TableColumn fx:id="colUsuRol" text="Rol" prefWidth="110"/>
+                        <TableColumn fx:id="colUsuEstado" text="Estado" prefWidth="100"/>
+                        <TableColumn fx:id="colUsuAcciones" text="Acciones" prefWidth="180" style="-fx-alignment: CENTER;"/>
+                    </columns>
+                    <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                    </columnResizePolicy>
+                </TableView>
+            </VBox>
+        </Tab>
+
+        <!-- PESTAÑA 2: GESTIÓN DE CATEGORÍAS -->
+        <Tab text="🏷️ Categorías">
+            <VBox spacing="14" style="-fx-padding: 15 0 0 0;">
+                <!-- Barra de Búsqueda y Acciones Rápidas -->
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <TextField fx:id="txtBuscarCategoria" promptText="🔍 Buscar categoría por nombre o descripción..."
+                               prefWidth="320" style="-fx-background-radius: 6px;"/>
+                    <Label fx:id="lblTotalCategorias" text="Total: 0 categorías"
+                           style="-fx-text-fill: #64748b; -fx-font-weight: bold; -fx-font-size: 13px;"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button text="➕ Nueva Categoría" onAction="#handleNuevaCategoria"
+                            styleClass="btn, btn-primary" style="-fx-font-weight: bold; -fx-cursor: hand;"/>
+                </HBox>
+
+                <TableView fx:id="tblCategorias" VBox.vgrow="ALWAYS" styleClass="table-view">
+                    <columns>
+                        <TableColumn fx:id="colCatId" text="ID" prefWidth="60"/>
+                        <TableColumn fx:id="colCatNombre" text="Nombre de la Categoría" prefWidth="220"/>
+                        <TableColumn fx:id="colCatDesc" text="Descripción" prefWidth="300"/>
+                        <TableColumn fx:id="colCatEstado" text="Estado" prefWidth="100"/>
+                        <TableColumn fx:id="colCatAcciones" text="Acciones" prefWidth="180" style="-fx-alignment: CENTER;"/>
+                    </columns>
+                    <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                    </columnResizePolicy>
+                </TableView>
+            </VBox>
+        </Tab>
+
+        <!-- PESTAÑA 3: GESTIÓN DE PROVEEDORES -->
+        <Tab text="🚚 Proveedores">
+            <VBox spacing="14" style="-fx-padding: 15 0 0 0;">
+                <!-- Barra de Búsqueda y Acciones Rápidas -->
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <TextField fx:id="txtBuscarProveedor" promptText="🔍 Buscar por RUC, razón social o correo..."
+                               prefWidth="320" style="-fx-background-radius: 6px;"/>
+                    <Label fx:id="lblTotalProveedores" text="Total: 0 proveedores"
+                           style="-fx-text-fill: #64748b; -fx-font-weight: bold; -fx-font-size: 13px;"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button text="➕ Nuevo Proveedor" onAction="#handleNuevoProveedor"
+                            styleClass="btn, btn-primary" style="-fx-font-weight: bold; -fx-cursor: hand;"/>
+                </HBox>
+
+                <TableView fx:id="tblProveedores" VBox.vgrow="ALWAYS" styleClass="table-view">
+                    <columns>
+                        <TableColumn fx:id="colProvRuc" text="RUC" prefWidth="120"/>
+                        <TableColumn fx:id="colProvRazon" text="Razón Social" prefWidth="200"/>
+                        <TableColumn fx:id="colProvContacto" text="Dirección" prefWidth="160"/>
+                        <TableColumn fx:id="colProvTelefono" text="Teléfono" prefWidth="110"/>
+                        <TableColumn fx:id="colProvEmail" text="Email" prefWidth="180"/>
+                        <TableColumn fx:id="colProvEstado" text="Estado" prefWidth="100"/>
+                        <TableColumn fx:id="colProvAcciones" text="Acciones" prefWidth="180" style="-fx-alignment: CENTER;"/>
+                    </columns>
+                    <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                    </columnResizePolicy>
+                </TableView>
+            </VBox>
+        </Tab>
+
+    </TabPane>
+
+</VBox>

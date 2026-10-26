@@ -1,0 +1,10 @@
+# Copiar como conexion-db.properties. Completar con Connect > Session pooler.
+# Es la contraseña de PostgreSQL, no la clave anon/publishable ni service_role.
+# No usar comillas. En valores .properties, escribir \\ para representar una barra invertida.
+DB_URL=jdbc:postgresql://HOST_DEL_SESSION_POOLER:5432/postgres?sslmode=require
+DB_USERNAME=postgres.REFERENCIA_DEL_PROYECTO
+DB_PASSWORD=COMPLETAR_EN_EL_ARCHIVO_PRIVADO
+# Cada API/panel abre su propio pool. Ajustar según el límite del proyecto.
+spring.datasource.hikari.maximum-pool-size=3
+spring.datasource.hikari.minimum-idle=0
+spring.datasource.hikari.connection-timeout=15000

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pe.edu.utp.Grupo06.view.PedidosWebViewController" spacing="10">
+ <HBox spacing="15"><Label text="Pedidos de la tienda web" style="-fx-font-size:22;-fx-font-weight:bold;"/><Button text="Actualizar pedidos" onAction="#refrescar"/></HBox>
+ <Label text="Los pedidos marcados DEMO son simulados. Para pagos reales, verifique el abono en Yape. Actualice para ver pedidos nuevos." wrapText="true"/>
+ <TableView fx:id="tabla" prefHeight="220" VBox.vgrow="ALWAYS"><columns>
+  <TableColumn fx:id="numero" text="Pedido" prefWidth="270"/><TableColumn fx:id="cliente" text="Cliente" prefWidth="180"/>
+  <TableColumn fx:id="estado" text="Estado" prefWidth="220"/><TableColumn fx:id="total" text="Total" prefWidth="100"/>
+ </columns></TableView>
+ <HBox spacing="10"><TextArea fx:id="detalle" editable="false" wrapText="true" prefRowCount="7" HBox.hgrow="ALWAYS"/><ImageView fx:id="comprobante" fitWidth="200" fitHeight="180" preserveRatio="true"/></HBox>
+ <HBox spacing="10"><Button text="Ver comprobante" onAction="#verComprobante"/><CheckBox fx:id="confirmado" text="Verifiqué el abono o la simulación DEMO"/></HBox>
+ <FlowPane hgap="8" vgap="8"><Button fx:id="aprobar" text="Aprobar pago" onAction="#aprobar"/><Button fx:id="rechazar" text="Rechazar comprobante" onAction="#rechazar"/><Button fx:id="preparar" text="Preparar pedido" onAction="#preparar"/><Button fx:id="listo" text="Listo para recoger" onAction="#listo"/></FlowPane>
+ <TextField fx:id="motivo" promptText="Motivo de rechazo o referencia del reembolso externo (obligatorio)"/>
+ <HBox spacing="8"><CheckBox fx:id="reponer" text="Mercadería revisada, apta para reponer"/><Button fx:id="reembolsar" text="Confirmar reembolso total (admin)" onAction="#reembolsar"/></HBox>
+ <HBox spacing="8"><TextField fx:id="codigo" promptText="Código NV-… o lector QR USB" onAction="#entregar" HBox.hgrow="ALWAYS"/><Button text="Registrar entrega" onAction="#entregar"/></HBox>
+ <Label fx:id="mensaje" wrapText="true"/>
+</VBox>

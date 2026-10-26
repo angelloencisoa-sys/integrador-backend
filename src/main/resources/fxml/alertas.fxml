@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="pe.edu.utp.Grupo06.view.AlertasViewController"
+      spacing="16" alignment="TOP_LEFT" maxWidth="Infinity" maxHeight="Infinity">
+
+    <!-- Encabezado con Filtros -->
+    <HBox alignment="CENTER_LEFT" spacing="15">
+        <VBox spacing="2">
+            <Label text="Alertas de Reposición de Inventario" styleClass="main-title"/>
+            <Label text="Productos en quiebre de stock y auditoría de atenciones" styleClass="sub-title"/>
+        </VBox>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Label text="Mostrar:" style="-fx-font-weight: bold; -fx-text-fill: #475569;"/>
+        <ComboBox fx:id="cbFiltroEstado" prefWidth="210"/>
+        <Button text="🔄 Refrescar" onAction="#cargarAlertas" styleClass="btn, btn-default" style="-fx-cursor: hand;"/>
+    </HBox>
+
+    <!-- Tabla de Alertas -->
+    <TableView fx:id="tblAlertas" VBox.vgrow="ALWAYS" styleClass="table-view">
+        <columns>
+            <TableColumn fx:id="colAlertaId" text="ID" prefWidth="60"/>
+            <TableColumn fx:id="colProducto" text="Producto Afectado" prefWidth="250"/>
+            <TableColumn fx:id="colStockReg" text="Stock Detectado" prefWidth="120"/>
+            <TableColumn fx:id="colStockMin" text="Stock Mínimo" prefWidth="110"/>
+            <TableColumn fx:id="colSugerida" text="Cant. Sugerida" prefWidth="120"/>
+            <TableColumn fx:id="colFecha" text="Fecha Generada" prefWidth="160"/>
+            <TableColumn fx:id="colEstado" text="Estado" prefWidth="110"/>
+            <TableColumn fx:id="colAcciones" text="Acción" prefWidth="110"/>
+        </columns>
+        <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+        </columnResizePolicy>
+    </TableView>
+
+</VBox>
