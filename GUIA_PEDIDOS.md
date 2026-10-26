@@ -1,6 +1,6 @@
 # Probar pedidos de La Bodega
 
-Los datos del comercio son referenciales y el modo predeterminado es **DEMO**.
+La ubicación en Google Maps y el horario (lunes a sábado, 8 a. m. a 8 p. m.) están confirmados. Ubicación de recojo: Asociación de Vivienda La Planicie de la Era / Zona de La Era de Pando, Ate, Lima 15487. Referencia: Pista nueva-Santa Clara, al costado de Ceviche69. Los datos de pago siguen en **DEMO**.
 No transfieras dinero. Las cuentas y productos existentes se conservaron.
 
 ## Arranque
@@ -58,4 +58,4 @@ No hay conexion con la cuenta bancaria, pasarela ni devoluciones automaticas.
 - Respaldo previo: `.local/backups/sgcivorp_local_antes_pedidos_20261025_195148.dump`.
 - Las cuentas, productos y pedidos temporales usados para verificar se eliminaron de `sgcivorp_test`.
 - No se crearon pedidos de prueba en `sgcivorp_local`.
-- Las fotos reales de productos quedan pendientes de los archivos que estas preparando.
+- Las 51 fotos de productos ya están integradas al frontend en formato WebP.
