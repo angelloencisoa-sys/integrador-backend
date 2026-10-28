@@ -12,9 +12,9 @@ No transfieras dinero. Las cuentas y productos existentes se conservaron.
 ## Recorrido de demostracion
 
 1. Elige productos y cantidades. El carrito funciona como invitado.
-2. Al continuar al checkout inicia sesion. Revisa los datos y pulsa **Crear pedido de prueba**.
+2. Al continuar al checkout inicia sesion. Revisa los datos y pulsa **Confirmar pedido**.
 3. El pedido queda guardado y reserva stock durante diez minutos. Veras el total y la fecha limite.
-4. Sube una imagen PNG/JPEG de prueba (maximo 3 MB) y una referencia como DEMO-001.
+4. La tienda muestra Yape o Plin con un único QR y titular Jorge Reyes. El archivo QR está pendiente de entrega; se incorpora en `PAYMENT_INFO.qrSrc` del frontend. Para verificar el flujo interno, sube una imagen PNG/JPEG de prueba (maximo 3 MB) y una referencia como DEMO-001.
    La imagen debe ser distinta de comprobantes usados antes. No se realiza ningun cobro.
 5. Abre **Pedidos web** en JavaFX y pulsa **Actualizar pedidos**. Selecciona el pedido y **Ver comprobante**.
 6. Marca la casilla de revision DEMO y pulsa **Aprobar pago**. Se registra una venta D001 simulada y una salida de stock.
@@ -38,6 +38,8 @@ No transfieras dinero. Las cuentas y productos existentes se conservaron.
   usa el reembolso simulado con reposicion. No borres ventas ni modifiques reservados manualmente.
 
 ## Cambiar los datos despues
+
+La interfaz pública no muestra etiquetas DEMO; el backend mantiene `app.tienda.demo=true`, las ventas simuladas y la revisión del personal. El cambio visual no habilita cobros reales ni aprobación automática. El QR de pago pendiente es distinto del QR de recojo generado después de aprobar el comprobante. El titular predeterminado de los nuevos pedidos es Jorge Reyes.
 
 Edita `INTEGRADOR_BACKEND/configuracion-tienda.properties`. Contiene titular,
 numero Yape, direccion, horario y modo DEMO. Se pueden reemplazar sin cambiar codigo.
